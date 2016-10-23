@@ -17,13 +17,13 @@ def hello_world():
                     mimetype="application/json")
 
 
-  image1 = cv2.imread(url_to_image(url1))
+  image1 = url_to_image(url1)
   image1 = cv2.cvtColor(image1, cv2.COLOR_BGR2RGB)
 
   hist1 = cv2.calcHist([image1], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
   hist1 = cv2.normalize(hist1).flatten()
 
-  image2 = cv2.imread(url_to_image(url2))
+  image2 = url_to_image(url2)
   image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)
 
   hist2 = cv2.calcHist([image2], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
