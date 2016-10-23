@@ -38,7 +38,7 @@ def hello_world():
   d = dist.euclidean(hist1, hist2)
 
 
-  return Response(response=d,
+  return Response(response=str(d),
                   status=200, \
                   mimetype="application/json")
 
