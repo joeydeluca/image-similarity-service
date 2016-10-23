@@ -27,7 +27,7 @@ def hello_world():
   image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)
 
   hist2 = cv2.calcHist([image2], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
-  hist2 = cv2.normalize(hist1).flatten()
+  hist2 = cv2.normalize(hist2).flatten()
 
   SCIPY_METHODS = (
     ("Euclidean", dist.euclidean),
