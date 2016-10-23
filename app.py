@@ -27,7 +27,7 @@ def hello_world():
   try:
     compareResult = dist.euclidean(get_histogram_from_url(url1), get_histogram_from_url(url2))
   except:
-    errorMessage = sys.exc_info()[0]
+    errorMessage = json.dumps(sys.exc_info()[0])
     print("Unexpected error:", errorMessage)
     resp = jsonify({
       'status'  : 'error',
