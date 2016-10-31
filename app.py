@@ -26,7 +26,8 @@ def compare():
 
   # Compare images. The lower the number, the closer the match
   try:
-    compareResult = dist.euclidean(get_histogram_from_url(url1), get_histogram_from_url(url2))
+    #compareResult = dist.euclidean(get_histogram_from_url(url1), get_histogram_from_url(url2))
+    compareResult = cv2.compareHist(get_histogram_from_url(url1), get_histogram_from_url(url2), cv2.cv.CV_COMP_BHATTACHARYYA) #hellinger
   except Exception, e:
     errorMessage = repr(e)
     print("Unexpected error:", errorMessage)
