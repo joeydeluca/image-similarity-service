@@ -9,7 +9,7 @@ import json
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def compare():
 
   # Get input data
   url1 = request.args.get('url1')
@@ -27,8 +27,8 @@ def hello_world():
   # Compare images. The lower the number, the closer the match
   try:
     compareResult = dist.euclidean(get_histogram_from_url(url1), get_histogram_from_url(url2))
-  except:
-    errorMessage = json.dumps(sys.exc_info()[0])
+  except Exception, e:
+    errorMessage = repr(e)
     print("Unexpected error:", errorMessage)
     resp = jsonify({
       'status'  : 'error',
